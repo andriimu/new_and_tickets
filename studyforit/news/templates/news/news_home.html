@@ -1,0 +1,30 @@
+{% extends 'main/layout.html'%}
+
+{% block namecont %}
+Helo my new project
+
+{% endblock %}
+
+{% block titlcont %}
+<div class="features">
+    <h1>News en Site</h1>
+    {% if news%}
+
+        {% for i in news %}
+            <div class="alert alert-warning">
+                <h3>{{i.title}}</h3>
+                <p>{{i.anons}}</p>
+                <a href="{% url 'news-detail' i.id %}"><button class = "btn btn-warning">Read in Detail</button></a>
+                
+            </div>
+        
+        {% endfor %}
+    {% else %}
+    <p>You dont have sets</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+ 

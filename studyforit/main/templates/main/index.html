@@ -1,0 +1,23 @@
+{% extends 'main/layout.html'%}
+
+{% block namecont %}
+Helo my new project
+
+{% endblock %}
+
+{% block titlcont %}
+<div class="features">
+    <h1>{{ title }}</h1>
+    <p>lorem 20sdgsbsbs s s</p>
+    <button class="btn btn-warning">about us</button>
+    {% for l in values%}
+    
+    <p>{{ l|upper }}</p>
+
+    {% endfor %}
+   
+</div>
+
+
+{% endblock %}
+
