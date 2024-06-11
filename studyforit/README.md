@@ -19,6 +19,8 @@ Fork this repo.
 
 * Commit your changes on UNIX. `source venv/bin/activate` or for Windows `.\venv\Scripts\activate `
 
+* Install packages `pip install -r requirements.txt`
+
 * Then make migrations `python manage.py makemigrations`
 
 * Then migrate `python manage.py migrate`

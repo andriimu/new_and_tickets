@@ -3,3 +3,4 @@
 **/*.toml
 **/db.sqlite3
 **/poetry.lock
+venv/
