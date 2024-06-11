@@ -1,0 +1,5 @@
+**/*.pyc
+**/*.tmp
+**/*.toml
+**/db.sqlite3
+poetry.lock

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cle-fsiztl$=x6k3302_erb=%78zsi*_q#^xef$hcjl+wb)b*7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
