@@ -2,5 +2,5 @@
 **/*.tmp
 **/*.toml
 **/db.sqlite3
-**/poetry.lock
+poetry.lock
 venv/
