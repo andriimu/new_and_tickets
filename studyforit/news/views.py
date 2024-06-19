@@ -30,6 +30,8 @@ class NewsUpdateView(UpdateView):
 
 def create(request):
     error = ''
+    form = ArticlesForm()
+
     if request.method =='POST':
         form = ArticlesForm(request.POST)
         if form.is_valid():
@@ -40,8 +42,7 @@ def create(request):
 
 
 
-    form = ArticlesForm()
-
+    
     date = {
         'form' : form,
         'error': error

@@ -18,11 +18,26 @@ from django.contrib import admin
 from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers, serializers, viewsets
+from django.contrib.auth.models import User
+from guests.views import *
+
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'is_staff']
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('news/', include('news.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('news/', include('news.urls')),
+    path('api-auth/', UserViewSet.as_view()),
+    path('api-auth/<int:pk>/', UserView.as_view()),
+    path('app/', include('guests.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
