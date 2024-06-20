@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
 
-from rest_framework import generics
 from .serializers import GuestSerializer
 from .models import User
 from .forms import UserForm
+from rest_framework import generics
+# Create your views here.
 
 def user_list(request):
     records=User.objects.all()
