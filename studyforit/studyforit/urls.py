@@ -18,17 +18,6 @@ from django.contrib import admin
 from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework import routers, serializers, viewsets
-from django.contrib.auth.models import User
-from guests.views import *
-
-
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
-
 
 from guests.views import UserViewSet, UserView
 
@@ -36,19 +25,10 @@ from guests.views import UserViewSet, UserView
 
 urlpatterns = [ 
     path('', include('main.urls')),
-<<<<<<< HEAD:studyforit/urls.py
     path('admin/', admin.site.urls),
-=======
->>>>>>> f69c80e2e355eafdd7585f58e7d0ff00a24d3af7:studyforit/studyforit/urls.py
     path('news/', include('news.urls')),
     path('api-auth/', UserViewSet.as_view()),
     path('api-auth/<int:pk>/', UserView.as_view()),
     path('app/', include('guests.urls')),
-<<<<<<< HEAD:studyforit/urls.py
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-=======
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> f69c80e2e355eafdd7585f58e7d0ff00a24d3af7:studyforit/studyforit/urls.py
-
-
