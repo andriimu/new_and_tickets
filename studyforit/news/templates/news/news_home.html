@@ -8,13 +8,13 @@ Helo my new project
 {% block titlcont %}
 <div class="features">
     <h1>News en Site</h1>
-    {% if news%}
+    {% if news_all_posts_models%}
 
-        {% for i in news %}
+        {% for each_post in news_all_posts_models %}
             <div class="alert alert-warning">
-                <h3>{{i.title}}</h3>
-                <p>{{i.anons}}</p>
-                <a href="{% url 'news-detail' i.id %}"><button class = "btn btn-warning">Read in Detail</button></a>
+                <h3>{{each_post.title}}</h3>
+                <p>{{each_post.anons}}</p>
+                <a href="{% url 'news-detail' each_post.id %}"><button class = "btn btn-warning">Read in Detail</button></a>
                 
             </div>
         

@@ -1,17 +1,17 @@
 {% extends 'main/layout.html'%}
 
 {% block namecont %}
-{{article.title}}
+{{article_of_news.title}}
 
 {% endblock %}
 
 {% block titlcont %}
 <div class="features">
-    <h1>{{article.title}}</h1>
-    <p>{{article.date}}</p>
-    <p>{{article.full_text}}</p>
-    <a href="{% url 'news-delete' article.pk %}" class="btn btn-danger"> Delete</a>
-    <a href="{% url 'news-update' article.pk %}" class="btn btn-info"> Update</a>
+    <h1>{{article_of_news.title}}</h1>
+    <p>{{article_of_news.date}}</p>
+    <p>{{article_of_news.full_text}}</p>
+    <a href="{% url 'news-delete' article_of_news.pk %}" class="btn btn-danger"> Delete</a>
+    <a href="{% url 'news-update' article_of_news.pk %}" class="btn btn-info"> Update</a>
     
     
 </div>

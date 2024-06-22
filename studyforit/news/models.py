@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Articles(models.Model):
     title = models.CharField('Naming', max_length=50 )
     anons = models.CharField('Anounce', max_length=250 )

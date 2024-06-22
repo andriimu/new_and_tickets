@@ -23,9 +23,10 @@ from guests.views import UserViewSet, UserView
 
 
 
-urlpatterns = [ 
+urlpatterns = [
+    path('admin/', admin.site.urls), 
     path('', include('main.urls')),
-    path('admin/', admin.site.urls),
+    
     path('news/', include('news.urls')),
     path('api-auth/', UserViewSet.as_view()),
     path('api-auth/<int:pk>/', UserView.as_view()),

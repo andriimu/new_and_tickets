@@ -5,42 +5,47 @@ from .serializers import GuestSerializer
 from .models import User
 from .forms import UserForm
 
-def user_list(request):
-    records=User.objects.all()
-    mydict={'records':records}
-    return render(request,'Listingpage.html',context=mydict)
+class User_list():
+    def User_list(request):
+        records=User.objects.all()
+        mydict={'records_from_User_models':records}
+        return render(request,'listingpage.html',context=mydict)
 
-def AddUser(request):
-    mydict={}
-    form=UserForm(request.POST or None , request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return redirect('/')
+class AddUser():
+    def AddUser(request):
+        mydict={}
+        form=UserForm(request.POST or None , request.FILES or None)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
 
-    mydict['form']=form
-    return render(request,'Add.html',mydict)
+        mydict['form_for_add_users']=form
+        return render(request,'add.html',mydict)
 
-def EditUser(request,id=None):
-    one_rec=User.objects.get(pk=id)
-    form=UserForm(request.POST or None,request.FILES or None, instance=one_rec)
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    mydict= {'form':form}
-    return render(request,'Edit.html',context=mydict)
+class EditUser():
+    def EditUser(request,id=None):
+        one_rec=User.objects.get(pk=id)
+        form=UserForm(request.POST or None,request.FILES or None, instance=one_rec)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        mydict= {'form_permision_edit':form}
+        return render(request,'edit.html',context=mydict)
 
-def DeleteUser(request,eid=None):
-    one_rec = User.objects.get(pk=eid)
-    if  request.method=="POST":
-         one_rec.delete()
-         return redirect('/')
-    return render(request,'Delete.html')
+class DeleteUser():
+    def DeleteUser(request,eid=None):
+        one_rec = User.objects.get(pk=eid)
+        if  request.method=="POST":
+            one_rec.delete()
+            return redirect('/')
+        return render(request,'delete.html')
 
-def ViewUser(request,eid=None):
-    mydict={}
-    one_rec = User.objects.get(pk=eid)
-    mydict['user']=one_rec
-    return render(request,'''View.html''',mydict)
+class ViewUser():
+    def ViewUser(request,eid=None):
+        mydict={}
+        one_rec = User.objects.get(pk=eid)
+        mydict['user_from_User_models']=one_rec
+        return render(request,'''view.html''',mydict)
 
 class UserViewSet(generics.ListCreateAPIView):
     queryset = User.objects.all()

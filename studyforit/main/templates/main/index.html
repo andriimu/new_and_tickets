@@ -7,12 +7,12 @@ Helo my new project
 
 {% block titlcont %}
 <div class="features">
-    <h1>{{ title }}</h1>
+    <h1>{{ title_of_page }}</h1>
     <p>lorem 20sdgsbsbs s s</p>
     <button class="btn btn-warning">about us</button>
-    {% for l in values%}
+    {% for each_line in values_of_index %}
     
-    <p>{{ l|upper }}</p>
+    <p>{{ each_line }}</p>
 
     {% endfor %}
    
