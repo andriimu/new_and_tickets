@@ -1,4 +1,9 @@
-from django.forms import ModelForm, TextInput, DateInput, Textarea
+from django.forms import (
+    ModelForm, 
+    TextInput, 
+    DateInput, 
+    Textarea
+    )
 
 from .models import Articles
 

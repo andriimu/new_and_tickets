@@ -1,4 +1,8 @@
-from django.views.generic import DetailView, UpdateView, DeleteView
+from django.views.generic import (
+    DetailView, 
+    UpdateView, 
+    DeleteView
+    )
 from django.shortcuts import render, redirect
 
 from .models import Articles
@@ -24,8 +28,9 @@ class NewsDeleteView(DeleteView):
 class NewsUpdateView(UpdateView):
     model = Articles
     template_name = 'news/create.html'
-    
     form_class = ArticlesForm
+
+
    
 class CreateNew():
     def create(request):
