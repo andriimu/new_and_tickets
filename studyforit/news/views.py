@@ -29,9 +29,12 @@ class NewsUpdateView(UpdateView):
     model = Articles
     template_name = 'news/create.html'
     form_class = ArticlesForm
-
-
-   
+    success_url = '/'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form_from_ArticlesFrom'] = context.pop('form')
+        return context
+    
 class CreateNew():
     def create(request):
         error = ''
